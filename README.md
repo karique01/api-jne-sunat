@@ -1,5 +1,6 @@
 # api-jne-sunat
 Api hecho en Slim Framework, muestra datos de sunat mediante ruc, datos de jne y tipo de cambio de sunat.
+*Se acopló modulo de Sunat de JossMP (https://github.com/JossMP/sunatphp) y se modifico para integracion.
 
 # Dependencias:
 composer install
