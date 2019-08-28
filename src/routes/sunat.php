@@ -9,9 +9,12 @@
         if((ctype_digit($ruc) and strlen($ruc) == 8) or (ctype_digit($ruc) and strlen($ruc) == 11)){
             $empresa = new \Sunat\Sunat( true, true );
             $resultado = $empresa->search( $ruc );
-            echo $resultado->json();
+            $data = $resultado->json();
+            $response->getBody()->write($data);
         }else{
-            print '{ "msg" : "Numero no valido" }';
+            $response->getBody()->write('{ "msg" : "Numero no valido" }');
         }
+
+        return $response;
 
     });

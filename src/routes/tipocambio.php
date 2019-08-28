@@ -28,9 +28,11 @@ $app->get('/tipocambio/{dia}/{mes}/{anho}', function (Request $request, Response
     $venta = trim(substr($parte_codigo,198, 13));
 
     if( empty($compra) and empty($venta)){
-        print '{ "compra" : 0, "venta" : 0 }';
+        $response->getBody()->write('{ "compra" : 0, "venta" : 0 }');
     }else{
-        print '{ "compra" : '.$compra. ', "venta" : '.$venta .' }';
+        $response->getBody()->write('{ "compra" : '.$compra. ', "venta" : '.$venta .' }');
     }
+
+    return $response;
 
 });

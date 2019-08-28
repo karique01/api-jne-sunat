@@ -30,9 +30,12 @@
                     'nombres' => $partes[2]
                 );
             }
-            echo json_encode($datos);
+            $datosJne = json_encode($datos);
+            $response->getBody()->write($datosJne);
         }else{
-            print '{ "msg" : "Numero de DNI no valido" }';
+            $response->getBody()->write('{ "msg" : "Numero de DNI no valido" }');
         }
+
+            return $response;
 
     });
